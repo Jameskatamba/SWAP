@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "admin2/build"
+		},
+		{
+			"path": "admin2/dist"
+		},
+		{
+			"path": "admin2/plugins"
+		}
+	]
+}
