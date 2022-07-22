@@ -45,6 +45,8 @@ Route::get("/visualizations/inline",function(){
 });
 
 
+
+
 Route::fallback(function(){
    return view("pages.examples.404");
 });
@@ -55,9 +57,12 @@ Route::controller(AuthController::class)->group(function(){
 });
 
 Route::controller(HomeController::class)->group(function(){
-   Route::get("/dashboard","dashboardOne");
+   //Route::get("/dashboard","dashboardOne");
    Route::get("/dashboard/2","dashboardTwo");
    Route::get("/dashboard/3","dashboardThree");
+   
+
+
 });
 
 Route::controller(DataController::class)->group(function(){
@@ -65,6 +70,8 @@ Route::controller(DataController::class)->group(function(){
    Route::get("/accounts/meters","getMeters");
    Route::get("/accounts/roles","getRoles");
    Route::get("/data","getDataset");
+   Route::get("/graph","showGraphs");
+   Route::get("/dashboard","dashboardOne");
 });
 
 

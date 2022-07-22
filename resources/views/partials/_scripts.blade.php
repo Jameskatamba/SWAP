@@ -237,6 +237,9 @@
     })
   </script>
 
+
+
+@isset($graph_data)
 <script>
     $(function () {
       /*
@@ -278,9 +281,11 @@
         return res
       }
   
+      var graph_data = {!! json_encode($graph_data) !!};
+
       var interactive_plot = $.plot('#interactive', [
           {
-            data: getRandomData(),
+            data: graph_data,
           }
         ],
         {
@@ -307,13 +312,15 @@
           }
         }
       )
+
+      
+     // console.log(graph_data);
+     // console.log(getRandomData());
   
       var updateInterval = 500 //Fetch data ever x milliseconds
       var realtime       = 'on' //If == to on then fetch data every x seconds. else stop fetching
       function update() {
-  
-        interactive_plot.setData([getRandomData()])
-  
+        interactive_plot.setData([graph_data])
         // Since the axes don't change, we don't need to call plot.setupGrid()
         interactive_plot.draw()
         if (realtime === 'on') {
@@ -525,6 +532,7 @@
         + Math.round(series.percent) + '%</div>'
     }
   </script>
+  @endisset
   
   <script>
     $(function () {
@@ -858,12 +866,16 @@ const Toast = Swal.mixin({
 }}
 <script>
 (function(){
-  let submitAdmins = $("#submitAdmins");
-  let adminsForm  = $("#adminsForm");
-  let roleForm  = $("#roleForm");
+  let submitAdmins=  $("#submitAdmins");
+  let adminsForm  =  $("#adminsForm");
+  let roleForm    =  $("#roleForm");
 
   let submitRole = $("#submitRole");
   let logoutBtn  = $("#logoutBtn");
+
+  logoutBtn.on("click",(ev)=>{
+      window.location.href="/logout";
+  })
 
   submitRole.on("click",ev=>{
       adminsForm.trigger("submit");

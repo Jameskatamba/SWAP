@@ -18,7 +18,7 @@ class AuthController extends Controller
 
         try{
         $user_name = $request->input("user_name");
-        $user_password = md5(md5($request->input("password")));
+        $user_password = ($request->input("password"));
         $users = DB::select("SELECT * FROM users where email='$user_name' or contact='$user_name' and password='$user_password' limit 1");   
     
         if(count($users)>0){
@@ -46,7 +46,7 @@ class AuthController extends Controller
         $meter_id = $request->input("meter_id");
         $meter_id = '1';
         $role_id = $request->input("role_id");
-        $user_password = md5(md5($request->input("password")));
+        $user_password = ($request->input("password"));
 
         $user_data = [
             'full_name'=>$name,

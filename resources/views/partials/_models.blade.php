@@ -155,11 +155,16 @@
               <!-- text input -->
               <div class="form-group">
                 <label>Role Name</label>
-                <input name="role_name" type="text" class="form-control" placeholder="Enter Full Name ...">
+                <input name="role_name" type="text" class="form-control" placeholder="">
               </div>
 
               <div class="form-group">
                 <label>Role Description</label>
+                <input name="role_desc" type="text" class="form-control" placeholder="Enter Full Name ...">
+              </div>
+
+              <div class="form-group">
+                <label>Abilities</label>
                 <input name="role_desc" type="text" class="form-control" placeholder="Enter Full Name ...">
               </div>
               

@@ -4,6 +4,7 @@
     <section class="content">
       <div class="container-fluid">
         <div class="row">
+
           <div class="col-12">
             <!-- interactive chart -->
             <div class="card card-primary card-outline">
@@ -29,6 +30,7 @@
             <!-- /.card -->
 
           </div>
+          
           <!-- /.col -->
         </div>
         <!-- /.row -->

@@ -43,13 +43,13 @@
               <li class="nav-item">
                 <a href="/dashboard" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v1</p>
+                  <p>Dashboard</p>
                 </a>
               </li>
-              <li class="nav-item">
+              {{-- <li class="nav-item">
                 <a href="/dashboard/2" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v2</p>
+                  <p>Dashboard </p>
                 </a>
               </li>
               <li class="nav-item">
@@ -57,7 +57,7 @@
                   <i class="far fa-circle nav-icon"></i>
                   <p>Dashboard v3</p>
                 </a>
-              </li>
+              </li> --}}
             </ul>
           </li>
          
@@ -148,6 +148,32 @@
               
             </ul>
           </li>
+
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-eye"></i>
+              <p>
+                Predictions
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="/data" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Future</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="/data" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Past</p>
+                </a>
+              </li>
+              
+            </ul>
+          </li>
 {{-- 
 
           <li class="nav-header">FEEDBACK</li>
@@ -182,22 +208,7 @@
             </ul>
           </li> --}}
 
-
-
-
-          
-
-
-           
-          
-          
-          
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon far fa-circle text-info"></i>
-              <p>Informational</p>
-            </a>
-          </li>
+        
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

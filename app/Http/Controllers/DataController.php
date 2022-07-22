@@ -42,4 +42,71 @@ class DataController extends Controller
             "dataset"=>$datasets
         ]);
     }
+
+    public function showGraphs(Request $request){
+        try{
+        $transactionData = DB::select("SELECT amount, time(created_at) as created_at from water_consuptions");
+        //  dd(
+        //     $transactionData
+        // );
+
+
+        $cleanData = [];
+        $counter = 0;
+        foreach($transactionData as $data)    {
+            $innerData = [
+                $counter,$data->amount
+            ];
+            $cleanData[$counter]=$innerData;
+            $counter++;
+        }
+
+        return view("charts.flot")->with(
+            [
+                "page_name"=>"Graphs",
+                "graph_data"=>$cleanData
+                ]
+        );  
+        } catch(QueryException $e){
+
+
+            echo("An error occured");
+        }
+    }
+
+    public function dashboardOne(Request $request){
+        try{
+        $transactionData = DB::select("SELECT amount, time(created_at) as created_at from water_consuptions");
+        //  dd(
+        //     $transactionData
+        // );
+
+
+        $cleanData = [];
+        $counter = 0;
+        foreach($transactionData as $data)    {
+            $innerData = [
+                $counter,$data->amount
+            ];
+            $cleanData[$counter]=$innerData;
+            $counter++;
+        }
+
+        return view("dashboard_1")->with(
+            [
+                "page_name"=>"Dashboard",
+                "graph_data"=>$cleanData
+                ]
+        );  
+        } catch(QueryException $e){
+            echo("An error occured");
+        }
+
+
+
+    }
+
+
+
+
 }
