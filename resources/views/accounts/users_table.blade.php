@@ -24,6 +24,7 @@
                   <th>Name</th>
                   <th>Contact</th>
                   <th>Role</th>
+                  <th>Actions</th>
                   
                 </tr>
                 </thead>
@@ -37,7 +38,11 @@
                     <td>{{$user->full_name}}</td>
                     <td>{{$user->email}}</td>
                     <td>{{$user->contact}}</td>
-                    <td>{{$user->role_name}}</td>
+                    <td cl>{{$user->role_name}}</td>
+                    <td>
+                      <span class="text-danger"  data-value='{{$user->user_id}}' ><i class="fas fa-cut"></i></span>
+                      <span class="text-success" data-value='{{$user->user_id}}'> <i class="fas fa-edit"></i></span>
+                    </td>
 
                   </tr>
                     
@@ -51,6 +56,7 @@
                     <th>Name</th>
                     <th>Contact</th>
                     <th>Role</th>
+                    <th>Actions</th>
                   </tr>
                 </tfoot>
               </table>

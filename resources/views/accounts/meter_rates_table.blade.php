@@ -11,20 +11,20 @@
 
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Rates  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-meters">
-                New Meter
+              <h3 class="card-title">Rates  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-rates">
+                New Rates
               </button></h3>  </div>
             <!-- /.card-header -->
             <div class="card-body">
 
-              @isset($meters)
+              @isset($rates)
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>Meter Id</th>
-                  <th>Meter Number</th>
-                  <th>Callibration</th>
-                  <th>Sale Status</th>
+                  <th>Rate Id</th>
+                  <th>Unit</th>
+                  <th>Unit Cost(UGX)</th>
+                  <th>Usage</th>
                   <th>Created At</th>
                   <th>Updated At</th>
                   <th>Actions</th>
@@ -32,18 +32,19 @@
                 </thead>
                 <tbody>
 
-                @foreach ($meters as $meter )
+                @foreach ($rates as $rate )
                 <tr>
-                  <td>#{{$meter->charge_rate_id}}</td>
-                  <td>{{$meter->unit}}</td>
-                  <td>{{$meter->unit_cost}}</td>
-                  <td><span><input type="checkbox"{{ $meter->in_use==1?'checked':""}}/></span></td>
-                  <td>{{date("D, d M Y  h:m:s a",strtotime($meter->created_at))}}</td>
-                  <td>{{date("D, d M Y  h:m:s a",strtotime($meter->updated_at))}}</td>
+                  <td>#{{$rate->rate_id}}</td>
+                  <td>{{$rate->unit}}</td>
+                  <td>{{$rate->unit_cost}}</td>
+                  <td><span><input type="checkbox"{{ $rate->in_use==1?'checked':""}}/></span></td>
+                  <td>{{date("D, d M Y  h:m:s a",strtotime($rate->created_at))}}</td>
+                  <td>{{date("D, d M Y  h:m:s a",strtotime($rate->updated_at))}}</td>
                   
+
                     <td>
-                        <span class="text-danger"  data-value='{{$meter->rate_id}}' ><i class="fas fa-cut"></i></span>
-                        <span class="text-success" data-value='{{$meter->rate_id}}'> <i class="fas fa-edit"></i></span>
+                        <span class="text-danger"  data-value='{{$rate->rate_id}}' ><i class="fas fa-cut"></i></span>
+                        <span class="text-success" data-value='{{$rate->rate_id}}'> <i class="fas fa-edit"></i></span>
                       </td>
                  
                 </tr>
@@ -52,10 +53,10 @@
                 </tbody>
                 <tfoot>
                   <tr>
-                    <th>Meter Id</th>
-                    <th>Meter Number</th>
-                    <th>Callibration</th>
-                    <th>Sale Status</th>
+                    <th>Role Id</th>
+                    <th>Unit</th>
+                    <th>Unit Cost(UGX)</th>
+                    <th>Usage</th>
                     <th>Created At</th>
                     <th>Updated At</th>
                     <th>Actions</th>

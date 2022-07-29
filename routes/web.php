@@ -60,9 +60,6 @@ Route::controller(HomeController::class)->group(function(){
    //Route::get("/dashboard","dashboardOne");
    Route::get("/dashboard/2","dashboardTwo");
    Route::get("/dashboard/3","dashboardThree");
-   
-
-
 });
 
 Route::controller(DataController::class)->group(function(){
@@ -72,6 +69,11 @@ Route::controller(DataController::class)->group(function(){
    Route::get("/data","getDataset");
    Route::get("/graph","showGraphs");
    Route::get("/dashboard","dashboardOne");
+   Route::get("/charge_rates","getChargeRates");
+   Route::post("/handle_roles","createRole");
+   Route::post("/handle_rates","createRate");
+   Route::post("/handle_meters","createMeter");
+   
 });
 
 

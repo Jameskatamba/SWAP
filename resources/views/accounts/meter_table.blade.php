@@ -24,7 +24,6 @@
                   <th>Meter Id</th>
                   <th>Meter Number</th>
                   <th>Callibration</th>
-                  <th>Sale Status</th>
                   <th>Created At</th>
                   <th>Updated At</th>
                   <th>Actions</th>
@@ -34,16 +33,17 @@
 
                 @foreach ($meters as $meter )
                 <tr>
-                  <td>#{{$meter->charge_rate_id}}</td>
+                  <td>#{{$meter->rate_id}}</td>
                   <td>{{$meter->unit}}</td>
                   <td>{{$meter->unit_cost}}</td>
-                  <td><span><input type="checkbox"{{ $meter->in_use==1?'checked':""}}/></span></td>
+                  <td><span><input type="checkbox"{{ $rate->in_use==1?'checked':""}}/></span></td>
                   <td>{{date("D, d M Y  h:m:s a",strtotime($meter->created_at))}}</td>
                   <td>{{date("D, d M Y  h:m:s a",strtotime($meter->updated_at))}}</td>
                   
+
                     <td>
-                        <span class="text-danger"  data-value='{{$meter->rate_id}}' ><i class="fas fa-cut"></i></span>
-                        <span class="text-success" data-value='{{$meter->rate_id}}'> <i class="fas fa-edit"></i></span>
+                        <span class="text-danger"  data-value='{{$rate->rate_id}}' ><i class="fas fa-cut"></i></span>
+                        <span class="text-success" data-value='{{$rate->rate_id}}'> <i class="fas fa-edit"></i></span>
                       </td>
                  
                 </tr>
@@ -52,10 +52,10 @@
                 </tbody>
                 <tfoot>
                   <tr>
-                    <th>Meter Id</th>
-                    <th>Meter Number</th>
-                    <th>Callibration</th>
-                    <th>Sale Status</th>
+                    <th>Role Id</th>
+                    <th>Unit</th>
+                    <th>Unit Cost(UGX)</th>
+                    <th>Usage</th>
                     <th>Created At</th>
                     <th>Updated At</th>
                     <th>Actions</th>

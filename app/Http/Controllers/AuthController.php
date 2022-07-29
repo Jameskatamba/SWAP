@@ -19,7 +19,16 @@ class AuthController extends Controller
         try{
         $user_name = $request->input("user_name");
         $user_password = ($request->input("password"));
-        $users = DB::select("SELECT * FROM users where email='$user_name' or contact='$user_name' and password='$user_password' limit 1");   
+
+
+        $users = DB::select("SELECT users.*,roles.role_id,roles.role_name,roles.permissions FROM users 
+         join roles on users.role_id=roles.role_id where users.email='$user_name'
+         or users.contact='$user_name'
+         and users.password='$user_password'
+         limit 1 "
+         ); 
+         
+    
     
         if(count($users)>0){
         session([
@@ -27,7 +36,9 @@ class AuthController extends Controller
         ]);
         return redirect("/dashboard");
         }else{
-            return back()->with("error","login attempt failed!!");
+
+            Session::put("error","login attempt failed!!");
+            return back();
         }
         }catch(QueryException $e){
             return "An error Occured";

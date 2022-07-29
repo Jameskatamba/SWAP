@@ -868,17 +868,29 @@ const Toast = Swal.mixin({
 (function(){
   let submitAdmins=  $("#submitAdmins");
   let adminsForm  =  $("#adminsForm");
-  let roleForm    =  $("#roleForm");
+  let rolesForm    =  $("#rolesForm");
+  let ratesForm    =  $("#ratesForm");
+  let metersForm    =  $("#metersForm");
 
-  let submitRole = $("#submitRole");
-  let logoutBtn  = $("#logoutBtn");
+  let submitRole =   $("#submitRole");
+  let submitMeter =   $("#submitMeter");
+  let submitRate =   $("#submitRate");
+  let logoutBtn  =   $("#logoutBtn");
 
   logoutBtn.on("click",(ev)=>{
       window.location.href="/logout";
   })
 
+  submitRate.on("click",ev=>{
+    ratesForm.trigger("submit");
+  })
+
+  submitMeter.on("click",ev=>{
+    metersForm.trigger("submit");
+  })
+
   submitRole.on("click",ev=>{
-      adminsForm.trigger("submit");
+    rolesForm.trigger("submit");
   })
 
 

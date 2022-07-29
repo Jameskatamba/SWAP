@@ -13,11 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('roles', function (Blueprint $table) {
-            $table->unsignedBigInteger("role_id")->autoIncrement();
-            $table->string("role_name");
-            $table->text("role_description");
-            $table->bigInteger("permissions")->default(110);
+        Schema::create('meters', function (Blueprint $table) {
+            $table->unsignedBigInteger("meter_id")->autoIncrement();
+            $table->string("meter_name");
+            $table->bigInteger("admin_id");
+            $table->bigInteger("sale_status");
+            $table->bigInteger("charge_rate_id");
             $table->timestamp("created_at")->default(now());
             $table->timestamp("updated_at")->default(now());
         });
@@ -30,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('roles');
+        Schema::dropIfExists('meters');
     }
 };

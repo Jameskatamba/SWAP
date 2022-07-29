@@ -18,6 +18,8 @@
 
             @if (session()->has("user"))
               {{session()->get("user")->full_name}}
+              <br>
+              <small class="text-info">{{session()->get("user")->role_name}}</small>
             @else
               No User
             @endif
@@ -105,17 +107,22 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="/accounts/users" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Users</p>
-                </a>
-              </li>
+              
 
               <li class="nav-item">
                 <a href="/accounts/meters" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Meters</p>
+                </a>
+              </li>
+
+
+              @if (Session::get("user")->permissions==111)
+              
+              <li class="nav-item">
+                <a href="/accounts/users" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Users</p>
                 </a>
               </li>
 
@@ -126,6 +133,8 @@
                   <p>Roles</p>
                 </a>
               </li>
+
+              @endif
               
               
             </ul>

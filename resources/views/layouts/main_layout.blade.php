@@ -1,4 +1,3 @@
-
 @if (Session::has("user"))
 @include("../partials._header")
 @include("../partials._nav")

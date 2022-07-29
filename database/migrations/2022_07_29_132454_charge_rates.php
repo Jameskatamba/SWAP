@@ -13,10 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('meters', function (Blueprint $table) {
-            $table->unsignedBigInteger("meter_id")->autoIncrement();
-            $table->string("location");
+        Schema::create('water_charge_rates', function (Blueprint $table) {
+            $table->unsignedBigInteger('rate_id')->autoIncrement();
+            $table->string("unit");
+            $table->float("unit_cost");
+            $table->bigInteger("admin_id")->default(1);
+            $table->bigInteger("in_use")->default(0);
             $table->timestamp("created_at")->default(now());
+            $table->timestamp("updated_at")->default(now());
         });
     }
 
@@ -27,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('meters');
+        //
     }
 };
